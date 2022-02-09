@@ -68,7 +68,7 @@ const Home = () => {
 
         <button onClick={handleShortLink}>
           {loading && <div className="loading"></div>}
-          <span>Encurtar Link</span>
+          {!loading && <span>Encurtar Link</span>}
         </button>
       </div>
 

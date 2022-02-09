@@ -6,6 +6,8 @@ import { Link } from "react-router-dom"
 import { getLinksSave, deleteLink } from "../../services/storeLinks"
 import LinkItem from "../../components/LinkItem"
 
+import Swal from 'sweetalert2'
+
 const Links = () => {
   const [myLinks, setMyLinks] = useState([])
 
@@ -35,17 +37,39 @@ const Links = () => {
     setShowModal(true)
   }
 
-  const handleDelete = async (id) => {
-    setLoading(true)
+  const handleDelete = async (item) => {
 
-    const result = await deleteLink(myLinks, id)
+    Swal.fire({
+      title: 'Você quer deletar esse link?',
+      text: item.long_url,
+      icon: 'warning',
+      showCancelButton: true,
+      cancelButtonText: 'Cancelar',
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sim, deletar!'
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        setLoading(true)
+        
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Deletado!',
+          showConfirmButton: false,
+          timer: 2000
+        })
 
-    if (result.length === 0) {
-      setEmptyList(true)
-    }
-    setMyLinks(result)
+        const result = await deleteLink(myLinks, item)
 
-    setLoading(false)
+        if (result.length === 0) {
+          setEmptyList(true)
+        }
+        setMyLinks(result)
+
+        setLoading(false)
+      }
+    })
   }
 
   return (
@@ -70,7 +94,7 @@ const Links = () => {
             {link.long_url}
           </button>
 
-          <button className="link-delete" onClick={() => handleDelete(link.id)}>
+          <button className="link-delete" onClick={() => handleDelete(link)}>
             {loading ? (
               <div className="loading-delete"></div>
             )

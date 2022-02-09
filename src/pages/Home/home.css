@@ -100,10 +100,11 @@ div.loading {
   height: 1.5em;
   animation: spin 1s linear infinite;
   position: absolute;
-  left: 35%;
   top: 0;
+  right: 0;
   bottom: 0;
-  margin: auto 0;
+  left: 0;
+  margin: auto;
 }
 
 @keyframes spin {
@@ -111,7 +112,6 @@ div.loading {
     transform: rotate(360deg);
   }
 }
-
 
 @media (max-width: 615px) {
   .logo img {

@@ -37,10 +37,10 @@ export const saveLink = async (key, newLink) => {
   })
 }
 
-export const deleteLink = async (links, id) => {
-  let myLinks = links.filter(item => item.id !== id)
+export const deleteLink = async (links, item) => {
+  let myLinks = links.filter(items => items.id !== item.id)
 
   await localStorage.setItem("link-shortener", JSON.stringify(myLinks))
-
+  
   return myLinks
 }
