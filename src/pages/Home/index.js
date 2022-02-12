@@ -46,13 +46,17 @@ const Home = () => {
     }
   }
 
+  const pressEnter = (event) => {
+    event.key === "Enter" && handleShortLink()
+  }
+
   return (
     <div className="container-home">
       <Menu />
       <div className="logo">
-        <img src={ImageLogo} alt="Logo" />
+        <div className="div-img"><img src={ImageLogo} alt="Logo" /></div>
         <h1>Encurtador de Link</h1>
-        <span>Cole seu link para encurtar 👇</span>
+        <span>&#8595; Cole seu link para encurtar &#8595;</span>
       </div>
 
       <div className="area-input">
@@ -63,6 +67,7 @@ const Home = () => {
             placeholder="Cole seu link aqui..."
             value={link}
             onChange={(event) => setLink(event.target.value)}
+            onKeyPress={pressEnter}
           />
         </div>
 

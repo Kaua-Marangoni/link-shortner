@@ -100,7 +100,7 @@ const Links = () => {
             )
               :
               (
-                <FiTrash size={24} color="#ff5454" />
+                <FiTrash size={24} color="#fff" />
               )
             }
           </button>

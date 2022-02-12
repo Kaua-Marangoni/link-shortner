@@ -13,9 +13,21 @@
   flex-direction: column;
 }
 
+.logo .div-img {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  transform: rotate(45deg);
+  margin-bottom: 50px;
+}
+
+.logo img {
+  width: 90px;
+  transform: rotate(315deg);
+}
+
 .logo h1 {
   font-size: 60px;
-  color: #fff;
   text-align: center;
 }
 
@@ -115,7 +127,7 @@ div.loading {
 
 @media (max-width: 615px) {
   .logo img {
-    width: 95px;
+    width: 55px;
   }
 
   .logo h1 {

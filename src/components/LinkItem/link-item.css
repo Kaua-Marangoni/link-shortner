@@ -37,11 +37,12 @@
 }
 
 .modal-link {
-  background-color: #172742;
+  background-color: #cf352a;
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: #fff;
+  font-size: 14px;
   padding: 0 14px;
   height: 38px;
   border: 0;
